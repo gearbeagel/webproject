@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, CustomAuthenticationForm
+from .forms import CreateUserForm, CustomAuthenticationForm, CampaignCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.conf import settings
@@ -67,3 +67,18 @@ def logout_view(request):
 
 def profile(request):
     return render(request, 'profile.html')
+
+
+def create_campaign(request):
+    if request.method == 'POST':
+        form = CampaignCreationForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('success_page/')
+    else:
+        form = CampaignCreationForm()
+    return render(request, 'campaign.html', {'form': form})
+
+
+def success_page(request):
+    return render(request, 'success_page.html')
