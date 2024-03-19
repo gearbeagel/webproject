@@ -11,9 +11,12 @@ Vitliy Zhuravskyi
 ## Getting Started:
 To run the project, follow next steps:
 
-1. Clone the repository: git clone https://github.com/TwoUfo/webproject.git
+1. Clone the repository: git clone https://github.com/TwoUfo/webproject.git OR click "install" to install project
 2. Install dependencies: pip install -r requirements.txt
-3. Run the development server: python manage.py runserver
+3. Run the development server: python manage.py runserver OR python3 manage.py runserver
+4. Click on the localhost link
+5. You need to log in to use the site (click on the LOGIN)
+6. If you have any difficulties - contact with me
 
 
 ## Documentation
@@ -32,11 +35,25 @@ Technologies used for the server side: Django, SQL
 In order to use the CrowdCausify service, you need to log in with the help of google authentication, after that you have the opportunity to support the community that corresponds to your interests, or to announce your collection.
 
 ## Project Task Decomposition
-Week 1 (02/27 - 06/5):
+Week 1:
 - Implement user authentication via Google account.
 - Set up basic project structure.
 - Develop initial dashboard layout.
 - Create database schema for user data storage.
 - Set up Azure environment for deployment.
+
+Week 2:
+- Implement feature: User registration and profile creation.
+- Set up Continuous Integration/Continuous Delivery pipeline.
+- Develop welcome email notification for new users.
+- Create project documentation with infrastructure diagram.
+- Define unit test framework and write initial tests for authentication module.
+
+Week 3:
+- Implement feature: Campaign creation functionality.
+- Integrate email notification service for campaign milestones.
+- Refine project documentation with detailed setup instructions.
+- Develop Postman collection for testing endpoints.
+- Begin unit testing for user registration and profile management.
 
 
