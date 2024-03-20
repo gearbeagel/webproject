@@ -9,7 +9,7 @@
 body{
   min-height: 100vh;
   width: 100%;
-  background: #7D7D7D;
+  background: #CED0C6;
 }
 .container{
   position: absolute;
@@ -58,7 +58,7 @@ body{
  }
 .form a{
   font-size: 16px;
-  color: #009579;
+  color: #D03D3B;
   text-decoration: none;
 }
 .form a:hover{
@@ -66,7 +66,7 @@ body{
 }
 .form input.button{
   color: #fff;
-  background: #576132;
+  background: #D03D3B;
   font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 1px;
@@ -75,7 +75,7 @@ body{
   transition: 0.4s;
 }
 .form input.button:hover{
-  background: #006653;
+  background: #D05B41;
 }
 .signup{
   font-size: 17px;

@@ -15,8 +15,10 @@ class CustomAuthenticationForm(AuthenticationForm):
 class CreateUserForm(UserCreationForm):
     username = forms.CharField(max_length=15, label='',
                                widget=forms.TextInput(attrs={'type': 'text', 'placeholder': 'Створіть логін'}))
-    password = forms.CharField(max_length=20, label='',
+    password1 = forms.CharField(max_length=20, label='',
                                widget=forms.TextInput(attrs={'type': 'password', 'placeholder': 'Створіть пароль'}))
+    password2 = forms.CharField(max_length=20, label='',
+                                widget=forms.TextInput(attrs={'type': 'password', 'placeholder': 'Повторіть пароль'}))
     email = forms.EmailField(max_length=20, label='',
                              widget=forms.TextInput(attrs={'type': 'text', 'placeholder': 'E-mail'}))
 
@@ -28,4 +30,4 @@ class CreateUserForm(UserCreationForm):
 class CampaignCreationForm(forms.ModelForm):
     class Meta:
         model = Campaign
-        fields = ['company_name', 'description', 'company_logo']
+        fields = ['campaign_name', 'description', 'campaign_logo']

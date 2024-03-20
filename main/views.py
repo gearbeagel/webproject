@@ -3,6 +3,7 @@ from .forms import CreateUserForm, CustomAuthenticationForm, CampaignCreationFor
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import Campaign
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.forms import UserCreationForm
@@ -66,14 +67,17 @@ def logout_view(request):
 
 
 def profile(request):
-    return render(request, 'profile.html')
+    user_campaigns = Campaign.objects.filter(user=request.user)
+    return render(request, 'profile.html', {'user_campaigns': user_campaigns})
 
 
 def create_campaign(request):
     if request.method == 'POST':
         form = CampaignCreationForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            campaign = form.save(commit=False)
+            campaign.user = request.user
+            campaign.save()
             return redirect('success_page/')
     else:
         form = CampaignCreationForm()
@@ -82,3 +86,17 @@ def create_campaign(request):
 
 def success_page(request):
     return render(request, 'success_page.html')
+
+
+def campaign_detail(request, campaign_name):
+    campaign = Campaign.objects.get(campaign_name=campaign_name)
+
+    return render(request, 'campaign_detail.html', {'campaign': campaign})
+
+
+def donate(request):
+    subject = 'Congratulations!'
+    html_message = render_to_string('milestones.html', {'username': 'username'})  # ADD params
+    from_email = settings.EMAIL_HOST_USER
+    to_email = None  # edit
+    send_mail(subject, html_message, from_email, [to_email])

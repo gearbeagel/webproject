@@ -1,34 +1,70 @@
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
+/* profile.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
 }
 
-.title {
-  color: grey;
-  font-size: 18px;
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
+.sidebar {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Розмістити по вертикалі */
+    align-items: center; /* Розмістити по горизонталі */
 }
 
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc; /* Замініть на зображення або кольори за бажанням */
+    border-radius: 50%;
+    margin-bottom: 20px;
 }
 
-button:hover, a:hover {
-  opacity: 0.7;
+.profile-info {
+    text-align: center; /* Розмістити текст по центру */
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    margin-bottom: 5px;
+}
+
+.profile-info span {
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 2;
+    padding: 20px;
+}
+
+.main-content h2 {
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    line-height: 1.6;
+}
+
+.main-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-content ul li {
+    margin-bottom: 5px;
 }

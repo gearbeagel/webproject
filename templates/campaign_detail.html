@@ -1,0 +1,14 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campaign - {{campaign.name}}</title>
+</head>
+<body>
+    <img src="{{ campaign.campaign_logo.url }}" alt="Campaign logo">
+    <h3>{{campaign.campaign_name}}</h3>
+    <p>Description: {{campaign.description}}</p>
+</body>
+</html>
