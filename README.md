@@ -56,4 +56,10 @@ Week 3:
 - Develop Postman collection for testing endpoints.
 - Begin unit testing for user registration and profile management.
 
+Week 4:
+- Implement feature: Donation management system.
+- Configure database schema for storing campaign and donation data.
+- Expand unit test coverage for core functionalities.
+- Finalize Postman collection for comprehensive API testing.
+- Update README.md with getting started documentation.
 
