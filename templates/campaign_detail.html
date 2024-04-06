@@ -10,5 +10,10 @@
     <img src="{{ campaign.campaign_logo.url }}" alt="Campaign logo">
     <h3>{{campaign.campaign_name}}</h3>
     <p>Description: {{campaign.description}}</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="button" value="Задонатити" name="login_submit">
+    </form>
 </body>
 </html>

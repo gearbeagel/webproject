@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm, CustomAuthenticationForm, CampaignCreationForm
+from .forms import CreateUserForm, CustomAuthenticationForm, CampaignCreationForm, CampaignDonateForm
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.conf import settings
@@ -90,13 +90,29 @@ def success_page(request):
 
 def campaign_detail(request, campaign_name):
     campaign = Campaign.objects.get(campaign_name=campaign_name)
+    if request.method == 'POST':
+        form = CampaignDonateForm(request.POST)
+        if form.is_valid():
 
-    return render(request, 'campaign_detail.html', {'campaign': campaign})
+            value = form.cleaned_data.get('donate')
+            campaign.donate += value
+            campaign.save()
+            return redirect('donate/', campaign_name=campaign_name)
+
+    else:
+        form = CampaignDonateForm
+        return render(request, 'campaign_detail.html', {'campaign': campaign, 'form': form})
 
 
-def donate(request):
+def donate(request, campaign_name):
+
+    campaign = Campaign.objects.get(campaign_name=campaign_name)
+
     subject = 'Congratulations!'
-    html_message = render_to_string('milestones.html', {'username': 'username'})  # ADD params
+    html_message = render_to_string('milestones.html', {'username': campaign.user.username, 'amount': campaign.donate})  # ADD params
+    plain_message = strip_tags(html_message)
     from_email = settings.EMAIL_HOST_USER
-    to_email = None  # edit
-    send_mail(subject, html_message, from_email, [to_email])
+    to_email = campaign.user.email
+    send_mail(subject, plain_message, from_email, [to_email])
+
+    return render(request, 'donate.html')

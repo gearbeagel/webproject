@@ -34,4 +34,21 @@ class MainTest(TestCase):
         self.assertTemplateUsed(response, 'profile.html')
         self.assertContains(response, 'Test Campaign')
 
+    def test_create_campaign1(self):
+        data = {
+            'campaign_name': 'Test Campaign',
+            'description': 'This is a test campaign.',
+            'campaign_icon': None,
+        }
+        response = self.client.post(reverse('create_campaign'), data)
+        self.assertEqual(response.status_code, 302)
+
+    def test_create_campaign2(self):
+        data = {
+            'campaign_name': 'My Campaign',
+            'description': 'My campaign is beautiful.',
+            'campaign_icon': None,
+        }
+        response = self.client.post(reverse('create_campaign'), data)
+        self.assertEqual(response.status_code, 302)
 
