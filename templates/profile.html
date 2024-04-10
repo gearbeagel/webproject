@@ -27,7 +27,8 @@
         <h2>Your campaigns:</h2>
         <ul>
         {% for campaign in user_campaigns %}
-            <li><a href="{% url 'campaign_detail' campaign.campaign_name %}">{{ campaign.campaign_name }}</a></li>
+            <li><a href="{% url 'campaign_detail' campaign.campaign_name %}">{{ campaign.campaign_name }}</a> | <a
+                    href="{% url 'campaign_settings' request.user.username campaign.campaign_name %}">analytics</a></li>
         {% endfor %}
     </ul>
         <!-- add for -->

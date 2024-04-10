@@ -30,7 +30,7 @@ class CreateUserForm(UserCreationForm):
 class CampaignCreationForm(forms.ModelForm):
     class Meta:
         model = Campaign
-        fields = ['campaign_name', 'description', 'campaign_logo']
+        fields = ['campaign_name', 'description', 'campaign_logo', 'goal']
 
 
 class CampaignDonateForm(forms.ModelForm):

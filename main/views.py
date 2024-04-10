@@ -3,7 +3,7 @@ from .forms import CreateUserForm, CustomAuthenticationForm, CampaignCreationFor
 from django.contrib.auth import authenticate, login, logout
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Campaign
+from .models import Campaign, Donors
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.auth.forms import UserCreationForm
@@ -18,7 +18,9 @@ class CustomLoginView(LoginView):
 
 
 def home(request):
-    return render(request, 'home.html')
+    campaigns = Campaign.objects.all()
+    return render(request, 'home.html', {'campaigns': campaigns})
+
 
 
 def login_view(request):
@@ -66,7 +68,7 @@ def logout_view(request):
     return redirect('/')
 
 
-def profile(request):
+def profile(request, user_name):
     user_campaigns = Campaign.objects.filter(user=request.user)
     return render(request, 'profile.html', {'user_campaigns': user_campaigns})
 
@@ -95,7 +97,21 @@ def campaign_detail(request, campaign_name):
         if form.is_valid():
 
             value = form.cleaned_data.get('donate')
-            campaign.donate += value
+
+            if Donors.objects.filter(user=request.user.username).exists() and Donors.objects.filter(campaign=campaign.campaign_name).exists():
+                donor = Donors.objects.filter(user=request.user.username, campaign=campaign.campaign_name)
+                donor = donor.first()
+                donor.donate += value
+                donor.save()
+            else:
+                donor = Donors.objects.create(user=request.user.username, campaign=campaign.campaign_name, donate=value)
+                donor.save()
+
+            if campaign.donate is not None:
+                campaign.donate += value
+            else:
+                campaign.donate = value
+
             campaign.save()
             return redirect('donate/', campaign_name=campaign_name)
 
@@ -116,3 +132,18 @@ def donate(request, campaign_name):
     send_mail(subject, plain_message, from_email, [to_email])
 
     return render(request, 'donate.html')
+
+
+def campaign_analytics(request, user_name, campaign_name):
+    donors = Donors.objects.filter(campaign=campaign_name)
+    cmp = Campaign.objects.filter(campaign_name=campaign_name)
+    cmp = cmp.first()
+
+    context = {
+        'donors': donors,
+        'total': cmp.donate,
+        'goal': cmp.goal,
+        'pgoal': round((cmp.donate/cmp.goal)*100, 1)
+    }
+
+    return render(request, 'campaign_analytics.html', context)

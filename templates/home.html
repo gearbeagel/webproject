@@ -14,7 +14,7 @@
             <p class="logo">CrowdCausify</p>
             <ul>
                 {% if request.user.is_authenticated %}
-                    <li><a href="profile">{{request.user.username}}</a></li>
+                    <li><a href="{% url 'profile' request.user.username %}">{{request.user.username}}</a></li>
                     <li><a href="logout">вийти</a></li>
                 {% else %}
                     <li><a href="login">увійти</a></li>
@@ -25,5 +25,9 @@
             </ul>
         </div>
     </div>
+
+    {% for campaign in campaigns %}
+        <p><a href="{% url 'campaign_detail' campaign.campaign_name %}">{{campaign.campaign_name}}</a></p>
+    {% endfor %}
 </body>
 </html>

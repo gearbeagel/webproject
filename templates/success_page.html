@@ -6,6 +6,6 @@
 </head>
 <body>
     <h1>Congrats!</h1>
-    <a href="{% url 'profile' %}">Profile</a>
+    <a href="{% url 'profile' request.user.username%}">Profile</a>
 </body>
 </html>
