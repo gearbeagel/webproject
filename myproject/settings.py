@@ -18,6 +18,8 @@ SECRET_KEY = 'django-insecure-5cuobfnu=&s_bg@n#p%)ncuamjzyryq(2=$oexsi!_e^gj4hd@
 DEBUG = True
 
 ALLOWED_HOSTS = ['crowdcausify.azurewebsites.net', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://crowdcausify.azurewebsites.net']
+
 
 
 # Application definition
