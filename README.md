@@ -36,30 +36,44 @@ In order to use the CrowdCausify service, you need to log in with the help of go
 
 ## Project Task Decomposition
 Week 1:
-- Implement user authentication via Google account.
-- Set up basic project structure.
-- Develop initial dashboard layout.
-- Create database schema for user data storage.
+- Implement user authentication via Google account.✅
+- Set up basic project structure.✅
+- Develop initial dashboard layout.✅
+- Create database schema for user data storage.✅
 - Set up Azure environment for deployment.
 
 Week 2:
-- Implement feature: User registration and profile creation.
+- Implement feature: User registration and profile creation.✅
 - Set up Continuous Integration/Continuous Delivery pipeline.
-- Develop welcome email notification for new users.
-- Create project documentation with infrastructure diagram.
-- Define unit test framework and write initial tests for authentication module.
+- Develop welcome email notification for new users.✅
+- Create project documentation with infrastructure diagram.✅
+- Define unit test framework and write initial tests for authentication module.✅
 
 Week 3:
-- Implement feature: Campaign creation functionality.
-- Integrate email notification service for campaign milestones.
-- Refine project documentation with detailed setup instructions.
+- Implement feature: Campaign creation functionality.✅
+- Integrate email notification service for campaign milestones.✅
+- Refine project documentation with detailed setup instructions.✅
 - Develop Postman collection for testing endpoints.
-- Begin unit testing for user registration and profile management.
+- Begin unit testing for user registration and profile management.✅
 
 Week 4:
-- Implement feature: Donation management system.
-- Configure database schema for storing campaign and donation data.
-- Expand unit test coverage for core functionalities.
+- Implement feature: Donation management system.✅
+- Configure database schema for storing campaign and donation data.✅
+- Expand unit test coverage for core functionalities.✅
 - Finalize Postman collection for comprehensive API testing.
-- Update README.md with getting started documentation.
+- Update README.md with getting started documentation.✅
+
+Week 5:
+- Implement feature: Campaign sharing options.✅
+- Enhance email notification system with social sharing links.
+- Deploy updated version to Azure for testing.
+- Conduct integration testing for authentication and donation features.
+- Analyze and address any deployment or configuration issues.
+
+Week 6:
+- Implement feature: Interactive user dashboard.✅
+- Develop dashboard components for displaying campaign analytics.
+- Enhance unit test suite with additional test cases.
+- Perform load testing to assess platform performance under simulated traffic.
+- Document load testing results and optimization strategies.
 
