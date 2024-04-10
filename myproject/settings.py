@@ -76,6 +76,9 @@ STORAGES = {
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
+    "default": {
+        "BACKEND": "django.core.files.storage.FileSystemStorage",
+    },
 }
 
 ROOT_URLCONF = 'myproject.urls'
@@ -165,3 +168,4 @@ EMAIL_HOST_PASSWORD = 'nzkgtahycmjwebrv'  # Пароль для аутентиф
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
