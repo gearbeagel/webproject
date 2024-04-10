@@ -37,6 +37,12 @@ body{
 .container .form{
   padding: 2rem;
 }
+
+.google {
+  text-align: center;
+  text-decoration: none;
+}
+
 .form header{
   font-size: 2rem;
   font-weight: 500;

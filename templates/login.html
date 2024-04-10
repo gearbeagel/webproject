@@ -1,4 +1,6 @@
 {% load static %}
+{% load socialaccount %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +21,15 @@
         {{ form.as_p }}
         <input type="submit" class="button" value="Увійти" name="login_submit">
       </form>
+
       <div class="signup">
         <span class="signup">Ще не маєте акаунту?
          <a href="{% url 'register' %}">Зареєструватися</a>
         </span>
       </div>
+
     </div>
+      <p class="google"><a href="{% provider_login_url 'google'%}?next=/">Log in via Google</a></p>
   </div>
 </body>
 </html>
