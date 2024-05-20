@@ -77,3 +77,7 @@ Week 6:
 - Perform load testing to assess platform performance under simulated traffic.
 - Document load testing results and optimization strategies.
 
+## Anti-Lab 2
+- Kondratska
+- [My project](https://github.com/gearbeagel/Kondratska.University.AirplaneLearning)
+- [My fork](https://github.com/gearbeagel/webproject)
