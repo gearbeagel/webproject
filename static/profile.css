@@ -1,0 +1,70 @@
+/* profile.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Розмістити по вертикалі */
+    align-items: center; /* Розмістити по горизонталі */
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc; /* Замініть на зображення або кольори за бажанням */
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    text-align: center; /* Розмістити текст по центру */
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    margin-bottom: 5px;
+}
+
+.profile-info span {
+    font-weight: bold;
+}
+
+.main-content {
+    flex: 2;
+    padding: 20px;
+}
+
+.main-content h2 {
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    line-height: 1.6;
+}
+
+.main-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main-content ul li {
+    margin-bottom: 5px;
+}

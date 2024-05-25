@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій профіль</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Rethink+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href= "{%static 'profile.css'%}">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="profile-picture">
+        </div>
+        <div class="profile-info">
+            <h1>{{request.user.username}}</h1>
+            <p>Email: <span>{{request.user.email}}</span></p>
+            <p><a href="{% url 'campaign' %}">Create Campaign</a></p>
+        </div>
+    </div>
+    <div class="main-content">
+
+        <h2>Your campaigns:</h2>
+        <ul>
+        {% for campaign in user_campaigns %}
+            <li><a href="{% url 'campaign_detail' campaign.campaign_name %}">{{ campaign.campaign_name }}</a> | <a
+                    href="{% url 'campaign_settings' request.user.username campaign.campaign_name %}">analytics</a></li>
+        {% endfor %}
+    </ul>
+        <!-- add for -->
+    </div>
+</div>
+
+</body>
+</html>
+
+
+

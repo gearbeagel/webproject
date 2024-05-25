@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p>Hello, {{ request.user.username }},</p>
+    <p>You have collected a significant amount of funds from your campaign {{campaign.campaign_name}}</p>
+    {% if milestone == half %}
+        <p>50%! {{amount}}</p>
+    {% else %}
+        <p>100%! {{amount}}</p>
+    {% endif %}
+</body>
+</html>

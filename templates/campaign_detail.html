@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campaign - {{campaign.name}}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <img src="{{ campaign.campaign_logo.url }}" alt="Campaign logo">
+    <h3>{{campaign.campaign_name}}</h3>
+    <p>Description: {{campaign.description}}</p>
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="button" value="Задонатити" name="login_submit">
+    </form>
+
+    <p>Share:<a href="#" class="fa fa-facebook" id="facebookShare"></a> <a href="#" class="fa fa-twitter" id="twitterShare"></a></p>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var currentUrl = window.location.href;
+
+            var facebookShareLink = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(currentUrl);
+            document.getElementById('facebookShare').setAttribute('href', facebookShareLink);
+
+            var twitterShareLink = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(currentUrl);
+            document.getElementById('twitterShare').setAttribute('href', twitterShareLink);
+        });
+
+    </script>
+</body>
+</html>
